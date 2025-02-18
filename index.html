@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Mental</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a la página de Salud Mental</h1>
+        <p>Responde estas preguntas para conocer tu estado de ánimo:</p>
+        
+        <form id="formulario">
+            <label>¿Cómo te has sentido últimamente?</label>
+            <select id="estado">
+                <option value="bien">Bien</option>
+                <option value="regular">Regular</option>
+                <option value="mal">Mal</option>
+            </select>
+            <br><br>
+            <button type="button" onclick="analizarEstado()">Enviar</button>
+        </form>
+
+        <h2 id="resultado"></h2>
+        <p id="consejo"></p>
+        
+        <button onclick="window.location.href='https://wa.me/tu_numero'">Contactar a un psicólogo</button>
+    </div>
+
+    <script>
+        function analizarEstado() {
+            let estado = document.getElementById("estado").value;
+            let resultado = document.getElementById("resultado");
+            let consejo = document.getElementById("consejo");
+
+            if (estado === "bien") {
+                resultado.innerText = "¡Nos alegra saber que te sientes bien!";
+                consejo.innerText = "Sigue manteniendo hábitos saludables.";
+            } else if (estado === "regular") {
+                resultado.innerText = "Parece que has tenido días mixtos.";
+                consejo.innerText = "Intenta hablar con alguien de confianza y descansar bien.";
+            } else {
+                resultado.innerText = "Lo sentimos, parece que no te sientes bien.";
+                consejo.innerText = "Busca apoyo, no estás solo. Puedes hablar con un profesional.";
+            }
+        }
+    </script>
+</body>
+</html>
